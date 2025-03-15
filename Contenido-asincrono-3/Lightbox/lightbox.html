@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbox</title>
+    <link rel="stylesheet" href="./estiloslightbox.css">
+</head>
+<body>
+<!--Imagen-->
+    <div class="imagen-caballo">
+        <img src="./img/beautiful-brown-horse-close-up-muzzle-cute-look-mane-background-running-field-corral-trees-horses-are-wonderful-animals.jpg" alt="Imagen" class="caballo" id="openLightbox">
+    </div>
+
+<!--Lightbox-->
+
+    <div class="lightbox" id="lightbox">
+        <button id="cerrar" class="cerrar">x</button> 
+        <img src="" class="grande" id="imgGrande">
+    </div>
+<!--Javascript-->
+    <script>
+        const lightbox = document.querySelector("#lightbox");
+        const openLightbox = document.querySelector("#openLightbox");
+        const closeLightbox = document.querySelector("#cerrar");
+        const imgGrande = document.querySelector("#imgGrande");
+
+        openLightbox.addEventListener("click", function(){
+            imgGrande.src = openLightbox.src;
+            lightbox.style.display = "flex";
+        });
+        closeLightbox.addEventListener("click", function(){
+            lightbox.style.display = "none";
+        });
+        lightbox.addEventListener("click", function(event){
+            if (event.target === lightbox){
+                lightbox.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

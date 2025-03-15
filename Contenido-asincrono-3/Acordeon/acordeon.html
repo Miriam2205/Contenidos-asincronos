@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo hacer un Acordeón con HTML, CSS y JS</title>
+    <link rel="stylesheet" href="./estilosacordeon.css">
+</head>
+<body>
+    <div class="Acordeon">
+        <div class="Acordeon__item activo">
+            <div class="Acordeon__title">Indice 0</div>
+            <div class="Acordeon__content">
+                <p>Contenido de la sección 0.</p>
+            </div>
+        </div>
+        <div class="Acordeon__item">
+            <div class="Acordeon__title">Indice 1</div>
+            <div class="Acordeon__content">
+                <p>Contenido de la sección 1.</p>
+            </div>
+        </div>
+        <div class="Acordeon__item">
+            <div class="Acordeon__title">Indice 2</div>
+            <div class="Acordeon__content">
+                <p>Contenido de la sección 2.</p>
+            </div>
+        </div>
+        <div class="Acordeon__item">
+            <div class="Acordeon__title">Indice 3</div>
+            <div class="Acordeon__content">
+                <p>Contenido de la sección 3.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const acordeonItems = document.querySelectorAll('.Acordeon__item');
+        const acordeonTitles = document.querySelectorAll('.Acordeon__title');
+
+        acordeonTitles.forEach((title, index) => {
+            title.addEventListener('click', () => {
+                // Cerrar todos los elementos antes de abrir el nuevo
+                acordeonItems.forEach(item => {
+                    if (item !== acordeonItems[index]) {
+                        item.classList.remove('activo');
+                    }
+                });
+
+                // Alternar la clase activo en el elemento clickeado
+                acordeonItems[index].classList.toggle('activo');
+            });
+        });
+    </script>
+</body>
+</html>
