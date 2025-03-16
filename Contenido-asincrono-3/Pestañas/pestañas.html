@@ -21,24 +21,19 @@
     </div>
 
     <script>
-        // Seleccionar todos los tabs y los contenidos
-        const tabs = document.querySelectorAll(".tab");
-        const contents = document.querySelectorAll(".content");
+        //Seleccion de elementos//
+        const [tabs, contents]=[ ".tab", ".content"].map(selector => document.querySelectorAll(selector));
 
-        tabs.forEach((tab) => {
-            tab.addEventListener("click", () => {
-                // Eliminar la clase active de todos los elementos
-                tabs.forEach(t => t.classList.remove("active"));
-                contents.forEach(c => c.classList.remove("active"));
+        //Funcion
+        const cambiarTab = ({target}) => {
 
-                // Agregar la clase active al tab seleccionado
-                tab.classList.add("active");
+            tabs.forEach(tab => tab.classList.remove("active"));
+            contents.forEach( content => content.classList.remove("active"));
 
-                // Obtener el índice de la pestaña y mostrar el contenido correspondiente
-                const tabIndex = tab.getAttribute("data-tab");
-                document.querySelector(`#content${tabIndex}`).classList.add("active");
-            });
-        });
+            target.classList.add("active");
+            document.querySelector(`#content${target.dataset.tab}`).classList.add("active");
+        };
+        tabs.forEach(tab=> tab.addEventListener("click", cambiarTab));
     </script>
 </body>
 </html>

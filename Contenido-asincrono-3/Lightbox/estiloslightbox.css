@@ -48,6 +48,8 @@ body {
 
 /*Boton cerrar*/
 .cerrar {
+    border-radius: 30px;
+    font-size: 1em;
     position:absolute;
     width: 3em;
     height: 3em;

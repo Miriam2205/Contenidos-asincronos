@@ -35,22 +35,19 @@
     </div>
 
     <script>
-        const acordeonItems = document.querySelectorAll('.Acordeon__item');
-        const acordeonTitles = document.querySelectorAll('.Acordeon__title');
 
-        acordeonTitles.forEach((title, index) => {
-            title.addEventListener('click', () => {
-                // Cerrar todos los elementos antes de abrir el nuevo
-                acordeonItems.forEach(item => {
-                    if (item !== acordeonItems[index]) {
-                        item.classList.remove('activo');
-                    }
-                });
+        const acordeon = document.querySelector(".Acordeon");
+        const handleAcordeonClick = ({ target }) => {
+            const item = target.closest(".Acordeon__item");
+            if (!item) return;
 
-                // Alternar la clase activo en el elemento clickeado
-                acordeonItems[index].classList.toggle('activo');
+            document.querySelectorAll(".Acordeon__item.activo").forEach(el => {
+                if (el !== item) el.classList.remove("activo");
             });
-        });
+
+            item.classList.toggle("activo");
+        };
+        acordeon.addEventListener("click", handleAcordeonClick);
     </script>
 </body>
 </html>

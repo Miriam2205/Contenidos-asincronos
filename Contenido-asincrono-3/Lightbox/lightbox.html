@@ -20,22 +20,25 @@
     </div>
 <!--Javascript-->
     <script>
-        const lightbox = document.querySelector("#lightbox");
-        const openLightbox = document.querySelector("#openLightbox");
-        const closeLightbox = document.querySelector("#cerrar");
-        const imgGrande = document.querySelector("#imgGrande");
+        //seleccion de elementos//
+        const [lightbox, imgGrande, cerrar, openImg] = [
+            "#lightbox", "#imgGrande", "#cerrar","#openLightbox" ].map(selector => document.querySelector(selector));
 
-        openLightbox.addEventListener("click", function(){
-            imgGrande.src = openLightbox.src;
+
+        //Funcion para abrir lightbox
+        const abrirLightbox = ({target})=>{
+            imgGrande.src = target.src;
             lightbox.style.display = "flex";
-        });
-        closeLightbox.addEventListener("click", function(){
-            lightbox.style.display = "none";
-        });
-        lightbox.addEventListener("click", function(event){
-            if (event.target === lightbox){
-                lightbox.style.display = "none";
-            }
+        };
+        //Funcion para cerrar lightbox
+        const cerrarLightbox = ()=>{
+            (lightbox.style.display="none");
+        };
+        //Eventos
+        openImg.addEventListener("click", abrirLightbox);
+        cerrar.addEventListener("click", cerrarLightbox);
+        lightbox.addEventListener("click", ({target})=>{
+            if(target !== imgGrande  && target !== cerrar )cerrarLightbox();
         });
     </script>
 </body>
