@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pestañas</title>
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+    <div class="container">
+        <ul class="ul">
+            <li class="tab active" data-tab="0">Opción 0</li>
+            <li class="tab" data-tab="1">Opción 1</li>
+            <li class="tab" data-tab="2">Opción 2</li>
+        </ul>
+        <div class="contenidos">
+            <div class="content active" id="content0">Contenido de Opción 0</div>
+            <div class="content" id="content1">Contenido de Opción 1</div>
+            <div class="content" id="content2">Contenido de Opción 2</div>
+        </div>
+    </div>
+
+    <script>
+        // Seleccionar todos los tabs y los contenidos
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".content");
+
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                // Eliminar la clase active de todos los elementos
+                tabs.forEach(t => t.classList.remove("active"));
+                contents.forEach(c => c.classList.remove("active"));
+
+                // Agregar la clase active al tab seleccionado
+                tab.classList.add("active");
+
+                // Obtener el índice de la pestaña y mostrar el contenido correspondiente
+                const tabIndex = tab.getAttribute("data-tab");
+                document.querySelector(`#content${tabIndex}`).classList.add("active");
+            });
+        });
+    </script>
+</body>
+</html>
