@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    justify-content: center;
+
+
+}
+.container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    color: white;
+    transition: background-image 0.5s ease-in-out;
+}
+#listaImg{
+    width:75%;
+    margin: 3rem;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    position: absolute;
+    z-index: 10;
+}
+.title{
+
+transition: opacity 0.3s ease, transform 0.3s ease; /* Transición suave */
+
+}
+
+
+.listaImg li{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 20px;
+}
+li:hover{
+    transition: background 0.5s ease-in-out;
+}
+.small{
+    font-size: 0.5rem;
+
+}
+/*MEDIA QUERIES*/
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 1.6rem;
+    }
+
+    #listaImg {
+        width: 80%; 
+        font-size: 2.5rem;
+        padding: 4rem;
+    }
+
+    .listaImg li {
+        font-size: 1.5rem; 
+        padding: 25px;
+    }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 1440px) {
+    body {
+        font-size: 1.4rem;
+    }
+
+    #listaImg {
+        width: 75%;
+        font-size: 2.2rem;
+        padding: 3rem;
+    }
+
+    .listaImg li {
+        font-size: 1.3rem;
+        padding: 20px;
+    }
+}
+
+/* Para pantallas medianas  */
+@media (max-width: 1024px) {
+    body {
+        font-size: 1.2rem;
+    }
+
+    #listaImg {
+        width: 90%; 
+        font-size: 2rem;
+        padding: 2rem;
+    }
+
+    .listaImg li {
+        font-size: 1.1rem;
+        padding: 18px;
+    }
+}
+
+/* Para tablets  */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    #listaImg {
+        width: 90%;
+        font-size: 1.6rem;
+        padding: 1.5rem;
+    }
+
+    .listaImg li {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .small {
+        font-size: 0.6rem; 
+    }
+}
+
+/* Para móviles  */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    #listaImg {
+        width: 100%;
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+
+    .listaImg li {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .small {
+        font-size: 0.5rem; 
+    }
+}
